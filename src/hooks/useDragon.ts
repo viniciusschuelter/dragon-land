@@ -1,5 +1,5 @@
 import * as dragonService from '../services/dragon.service';
-import { DragonInterface } from '../interfaces/dragon';
+import { DragonInterface } from '../interfaces/dragon.interface';
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 

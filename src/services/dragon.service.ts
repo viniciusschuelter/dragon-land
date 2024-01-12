@@ -1,5 +1,5 @@
 import { api } from '../api/api'
-import { DragonInterface } from '../interfaces/dragon';
+import { DragonInterface } from '../interfaces/dragon.interface';
 
 export const getAllDragons = () => api.get<DragonInterface[]>('v1/dragon');
 
