@@ -1,17 +1,21 @@
-import {useDragon} from '../hooks/useDragon';
+import { useDragon } from '../hooks/useDragon';
 import DragonCard from './DragonCard';
-import {useEffect} from "react";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const DragonList = () => {
+    const navigate = useNavigate()
     const { dragons, getAllDragons } = useDragon()
+
 
     useEffect(() => {
         getAllDragons()
     }, [getAllDragons])
 
     return (
-        <div className="container" style={dragonListContainer}>
+        <div className='container' style={dragonListContainer}>
+            <button type='submit' className='contrast' onClick={() => navigate('/dragon/create')}>New Dragon</button>
             {dragons?.map( (dragon, i) => <DragonCard key={i} dragon={dragon} />)}
         </div>
     )
