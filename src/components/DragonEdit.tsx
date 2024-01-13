@@ -1,7 +1,8 @@
-import {useCallback, useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { DragonInterface } from '../interfaces/dragon.interface';
 import { useDragon } from '../hooks/useDragon';
-import {useNavigate, useParams} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import ButtonBack from './ButtonBack';
 
 const initialDragon: DragonInterface = {
     id: '',
@@ -34,9 +35,7 @@ const DragonEdit = () => {
 
     return (
         <div className='container'>
-            <h3 style={backButton} onClick={() => navigate('/dragons')}>
-                ← Back
-            </h3>
+            <ButtonBack />
             <article className='grid'>
                 <div>
                     <hgroup>
@@ -81,10 +80,3 @@ const DragonEdit = () => {
 }
 
 export default DragonEdit
-
-const backButton = {
-    position: 'absolute',
-    cursor: 'pointer',
-    left: '1rem',
-    top: '1rem'
-}

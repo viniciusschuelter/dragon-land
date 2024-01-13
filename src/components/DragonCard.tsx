@@ -11,8 +11,18 @@ const DragonCard = (props: { dragon: DragonInterface}) => {
     const navigate = useNavigate()
     const { deleteDragonById } = useDragon()
 
-    const goToEditDragon = () => navigate(`/dragon/edit/${dragon?.id}`)
-    const handleRemove = (e) => deleteDragonById(dragon?.id)
+    const goToEditDragon = (e) => {
+        e.stopPropagation();
+        navigate(`/dragon/edit/${dragon?.id}`)
+    }
+    const goToDetailDragon = (e) => {
+        e.stopPropagation();
+        navigate(`/dragon/detail/${dragon?.id}`)
+    }
+    const handleRemove = (e) => {
+        e.stopPropagation();
+        deleteDragonById(dragon?.id)
+    }
 
     return (
         <Tilt
@@ -22,14 +32,13 @@ const DragonCard = (props: { dragon: DragonInterface}) => {
                 speed: 450,
             }}
         >
-            <div style={dragonCardContainer} className='icon-container'>
+            <div style={dragonCardContainer} className='icon-container' onClick={goToDetailDragon}>
                 <div style={dragonCardContainerImage}>
                     <img
                         src={randomDragonImage()}
                         alt='dragon_image'
                         style={dragonCardImage}
                     />
-
                     <div style={dragonCardEdit} className='icon-hovered' onClick={goToEditDragon}>
                         ✎
                     </div>
