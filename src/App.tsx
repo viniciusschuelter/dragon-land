@@ -9,9 +9,9 @@ function App() {
   return (
       <div className="App">
           <BrowserRouter>
-              <AuthContext.Provider value={{ user, setUser }}>
+              {/*<AuthContext.Provider value={{ user, setUser }}>*/}
                   <Root></Root>
-              </AuthContext.Provider>
+              {/*</AuthContext.Provider>*/}
           </BrowserRouter>
       </div>
   )

@@ -5,7 +5,6 @@ const ButtonLogin = (props: { user : UserInterface}) => {
     const { login } = useAuth();
 
     const handleClick = () => {
-        console.log(useAuth);
         login(props.user)
     }
 
