@@ -1,19 +1,18 @@
 import { DragonInterface } from '../interfaces/dragon.interface';
 import { Tilt } from 'react-tilt';
 import { randomDragonImage } from '../utils/utils';
-import { redirect } from 'react-router-dom';
-import {useDragon} from "../hooks/useDragon";
+import { useNavigate } from 'react-router-dom';
+import { useDragon } from '../hooks/useDragon';
 
 
 const DragonCard = (props: { dragon: DragonInterface}) => {
     const { dragon } = props;
 
+    const navigate = useNavigate()
     const { deleteDragonById } = useDragon()
 
-    const handleRemove = (e) => {
-        e.stopPropagation();
-        deleteDragonById(dragon?.id)
-    }
+    const goToEditDragon = () => navigate(`/dragon/edit/${dragon?.id}`)
+    const handleRemove = (e) => deleteDragonById(dragon?.id)
 
     return (
         <Tilt
@@ -23,7 +22,7 @@ const DragonCard = (props: { dragon: DragonInterface}) => {
                 speed: 450,
             }}
         >
-            <div style={dragonCardContainer} className="icon-container" onClick={() => redirect('/dragon/detail')}>
+            <div style={dragonCardContainer} className='icon-container'>
                 <div style={dragonCardContainerImage}>
                     <img
                         src={randomDragonImage()}
@@ -31,7 +30,10 @@ const DragonCard = (props: { dragon: DragonInterface}) => {
                         style={dragonCardImage}
                     />
 
-                    <div style={dragonCardDelete} className="icon-hovered" onClick={handleRemove}>
+                    <div style={dragonCardEdit} className='icon-hovered' onClick={goToEditDragon}>
+                        ✎
+                    </div>
+                    <div style={dragonCardDelete} className='icon-hovered' onClick={handleRemove}>
                         🗑
                     </div>
                 </div>
@@ -63,7 +65,15 @@ const dragonCardImage = {
     height: '100%',
     borderRadius: '0.5rem'
 }
-
+const dragonCardEdit = {
+    position: 'absolute',
+    top: '-1rem',
+    left: '-1rem',
+    borderRadius: '50%',
+    background: '#21b6e3',
+    padding: '0 8px',
+    color: '#fff'
+}
 const dragonCardDelete = {
     position: 'absolute',
     top: '-1rem',

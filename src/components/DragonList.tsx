@@ -26,5 +26,6 @@ export default DragonList
 const dragonListContainer = {
     display: 'flex',
     flexWrap: 'wrap',
-    gridGap: '1.5rem'
+    gridGap: '1.5rem',
+    justifyContent: 'center',
 }

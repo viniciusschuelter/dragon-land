@@ -13,7 +13,7 @@ export const useDragon = () => {
     const getAllDragons = useCallback(async () => {
         try {
             const { data } = await dragonService.getAllDragons();
-            setDragons(data);
+            setDragons(data.sort((a, b) => a.name.localeCompare(b.name)));
         } catch (e) {
             toastAlert(404);
         }

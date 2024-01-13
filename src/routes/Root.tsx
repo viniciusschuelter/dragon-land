@@ -5,18 +5,20 @@ import DragonList from '../components/DragonList'
 import DragonCreate from '../components/DragonCreate'
 // import DragonDetail from '../components/DragonDetail'
 import PublicRoutes from './PublicRoutes'
+import DragonEdit from '../components/DragonEdit';
 
 export default function Root() {
     return (
         <Routes>
             <Route element={<PublicRoutes />}>
-                <Route path="/" element={<Login />} />
+                <Route path='/' element={<Login />} />
             </Route>
 
             <Route element={<PrivateRoutes />}>
-                <Route path="/dragons" element={<DragonList />} />
-                <Route path="/dragon/create" element={<DragonCreate />} />
-                {/*<Route path="/dragon/detail"  element={<DragonDetail />} />*/}
+                <Route path='/dragons' element={<DragonList />} />
+                <Route path='/dragon/create' element={<DragonCreate />} />
+                <Route path='/dragon/edit/:dragonId' element={<DragonEdit />} />
+                {/*<Route path='/dragon/detail'  element={<DragonDetail />} />*/}
             </Route>
         </Routes>
     )
