@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useUser } from './useUser';
 import { UserInterface } from '../interfaces/user.interface';
+import { redirect } from 'react-router-dom';
 
 export const useAuth = () => {
     const { user, addUser, removeUser } = useUser();
@@ -14,6 +15,7 @@ export const useAuth = () => {
 
     const login = (user: UserInterface) => {
         addUser(user);
+        redirect('/dragons');
     };
 
     const logout = () => {

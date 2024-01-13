@@ -4,15 +4,7 @@ import { useAuth } from '../hooks/useAuth';
 const PrivateRoutes = () => {
     const { user } = useAuth();
 
-    return (
-        user ? (
-            // <DragonsProvider>
-                <Outlet />
-            // </DragonsProvider>
-        ) : (
-            <Navigate to='/' />
-        )
-    )
+    return (user ? (<Outlet />) : (<Navigate to='/' />))
 }
 
 export default PrivateRoutes
