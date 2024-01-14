@@ -1,9 +1,9 @@
 import { useDragon } from '../hooks/useDragon';
 import DragonCard from './DragonCard';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from "./layout/Header";
-import {DragonInterface} from "../interfaces/dragon.interface";
+import Header from './layout/Header';
+import { DragonInterface } from '../interfaces/dragon.interface';
 
 
 const DragonList = () => {
