@@ -7,7 +7,7 @@ import Root from './routes/Root';
 function App() {
   const { user, setUser } = useAuth();
   return (
-      <div className='App'>
+      <div className='container'>
           <BrowserRouter>
               <AuthContext.Provider value={{ user, setUser }}>
                   <Root></Root>

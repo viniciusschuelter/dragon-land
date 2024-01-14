@@ -14,7 +14,9 @@ export default function Root() {
                 <Route path='/' element={<Login />} />
             </Route>
 
-            <Route element={<PrivateRoutes />}>
+            <Route element={
+                <PrivateRoutes />
+            }>
                 <Route path='/dragons' element={<DragonList />} />
                 <Route path='/dragon/create' element={<DragonCreate />} />
                 <Route path='/dragon/edit/:dragonId' element={<DragonEdit />} />

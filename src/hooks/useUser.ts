@@ -11,7 +11,7 @@ export const useUser = () => {
 
     const removeUser = () => {
         setUser(null);
-        localStorage.setItem('user', JSON.stringify(user))
+        localStorage.removeItem('user')
     };
 
     return { user, addUser, removeUser };
