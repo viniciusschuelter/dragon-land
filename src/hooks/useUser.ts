@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/auth.context';
+import { useState } from 'react';
 import { UserInterface } from '../interfaces/user.interface';
 
 export const useUser = () => {
-    const { user, setUser } = useContext(AuthContext);
+    const [user, setUser] = useState<UserInterface>(null);
 
     const addUser = (user: UserInterface) => {
         setUser(user);

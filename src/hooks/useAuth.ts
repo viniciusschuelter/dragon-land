@@ -1,25 +1,23 @@
 import { useEffect } from 'react';
 import { useUser } from './useUser';
 import { UserInterface } from '../interfaces/user.interface';
-import { redirect } from 'react-router-dom';
 
 export const useAuth = () => {
-    const { user, addUser, removeUser } = useUser();
+    const { user, addUser, removeUser } = useUser()
 
     useEffect(() => {
         const user = localStorage.getItem('user');
         if (user) {
-            addUser(JSON.parse(user));
+            addUser(JSON.parse(user))
         }
-    }, []);
+    }, [])
 
     const login = (user: UserInterface) => {
-        addUser(user);
-        redirect('/dragons');
+        addUser(user)
     };
 
     const logout = () => {
-        removeUser();
+        removeUser()
     };
 
     return { user, login, logout };
