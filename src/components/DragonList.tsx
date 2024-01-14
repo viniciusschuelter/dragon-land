@@ -19,11 +19,8 @@ const DragonList = () => {
     }, [])
 
     useEffect(() => {
-        if (!!searchTerm) {
-            const dragonsClone = JSON.parse(JSON.stringify(dragons))
-            const filtered = dragonsClone?.filter((dragon) => !searchTerm || dragon?.name?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
-            setDragonsFiltered(filtered)
-        }
+        const filtered = dragons?.filter((dragon) => dragon?.name?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
+        setDragonsFiltered(filtered)
     }, [searchTerm])
 
     const handleSearchTermChange = (e) => setSearchTerm(e.target.value)
