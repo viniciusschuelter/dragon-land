@@ -9,19 +9,33 @@ const Login = () => {
     const handlePasswordChange = (e) => setPassword(e.target.value)
 
     return (
-        <>
-            <div>
-                <label>
-                    Username:
-                    <input value={username} onChange={handleUsernameChange} placeholder='Type any username'/>
-                </label>
-                <label>
-                    Login:
-                    <input value={password} onChange={handlePasswordChange} placeholder='Type any password'/>
-                </label>
-                <ButtonLogin user={{username, password}}></ButtonLogin>
-            </div>
-        </>
+        <div className='container'>
+            <article className='grid'>
+                <div>
+                    <hgroup>
+                        <h3>Welcome to Dragon Land</h3>
+                        <h2>Type anything to access</h2>
+                    </hgroup>
+                    <label>
+                        Username:
+                    </label>
+                    <input
+                        name='name'
+                        placeholder='type any name'
+                        onChange={handleUsernameChange}
+                    />
+                    <label>
+                        Password:
+                    </label>
+                    <input
+                        name='password'
+                        placeholder='type any password'
+                        onChange={handlePasswordChange}
+                    />
+                    <ButtonLogin user={{username, password}} />
+                </div>
+            </article>
+        </div>
     )
 }
 
