@@ -22,11 +22,11 @@ const DragonEdit = () => {
 
     useEffect( () => {
         getDragonById(dragonId as string).then( (dragon) => {
-            setUpdDragonState(dragon)
+            setUpdDragonState(dragon || initialDragon)
         })
     }, [getDragonById])
 
-    const handleDragonChange = (e, prop) => setUpdDragonState({...updDragon, [prop]: e.target.value})
+    const handleDragonChange = (e: any, prop: string) => setUpdDragonState({...updDragon, [prop]: e.target.value})
 
     const handleDragonUpdate = async () => {
         await updateDragonById(updDragon)

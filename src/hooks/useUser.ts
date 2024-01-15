@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { UserInterface } from '../interfaces/user.interface';
 
 export const useUser = () => {
-    const [user, setUser] = useState<UserInterface>(null);
+    const [user, setUser] = useState<UserInterface | null>(null);
 
     const addUser = (user: UserInterface) => {
         setUser(user);
@@ -14,5 +14,5 @@ export const useUser = () => {
         localStorage.removeItem('user')
     };
 
-    return { user, addUser, removeUser };
+    return { user, setUser, addUser, removeUser };
 };

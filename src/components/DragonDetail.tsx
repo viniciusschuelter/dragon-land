@@ -22,7 +22,7 @@ const DragonDetail = () => {
 
     useEffect( () => {
         getDragonById(dragonId as string).then( (dragon) => {
-            setDragon(dragon)
+            setDragon(dragon || initialDragon)
         })
     }, [getDragonById])
 

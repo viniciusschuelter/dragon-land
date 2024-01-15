@@ -17,4 +17,4 @@ const backButton = {
     cursor: 'pointer',
     left: '1rem',
     top: '1rem'
-}
+} as any

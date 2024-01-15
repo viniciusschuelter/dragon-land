@@ -5,5 +5,5 @@ export interface DragonInterface {
     name: string;
     type: string;
     histories: string;
-    createdAt: Date | string;
+    createdAt: string;
 }

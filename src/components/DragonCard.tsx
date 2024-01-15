@@ -11,17 +11,17 @@ const DragonCard = (props: { dragon: DragonInterface}) => {
     const navigate = useNavigate()
     const { deleteDragonById } = useDragon()
 
-    const goToEditDragon = (e) => {
+    const goToEditDragon = (e: any) => {
         e.stopPropagation();
         navigate(`/dragon/edit/${dragon?.id}`)
     }
-    const goToDetailDragon = (e) => {
+    const goToDetailDragon = (e: any) => {
         e.stopPropagation();
         navigate(`/dragon/detail/${dragon?.id}`)
     }
-    const handleRemove = (e) => {
+    const handleRemove = (e: any) => {
         e.stopPropagation();
-        deleteDragonById(dragon?.id)
+        deleteDragonById(dragon?.id || '')
     }
 
     return (
@@ -62,18 +62,19 @@ const dragonCardContainer = {
     padding: '1.5rem',
     borderRadius: '1rem',
     cursor: 'pointer'
-}
+} as any
 
 const dragonCardContainerImage = {
     position: 'relative',
     width: '100%'
-}
+} as any
 
 const dragonCardImage = {
     width: '100%',
     height: '100%',
     borderRadius: '0.5rem'
-}
+} as any
+
 const dragonCardEdit = {
     position: 'absolute',
     top: '-1rem',
@@ -82,7 +83,8 @@ const dragonCardEdit = {
     background: '#21b6e3',
     padding: '0 8px',
     color: '#fff'
-}
+} as any
+
 const dragonCardDelete = {
     position: 'absolute',
     top: '-1rem',
@@ -91,13 +93,13 @@ const dragonCardDelete = {
     background: '#e3212a',
     padding: '0 8px',
     color: '#fff'
-}
+} as any
 
 const dragonCardTitle = {
     margin: '0.5rem 0'
-}
+} as any
 
 const dragonCardDescription = {
     fontSize: '0.75rem',
     margin: '0'
-}
+} as any

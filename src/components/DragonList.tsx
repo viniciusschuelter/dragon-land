@@ -20,10 +20,10 @@ const DragonList = () => {
 
     useEffect(() => {
         const filtered = dragons?.filter((dragon) => dragon?.name?.toLowerCase()?.includes(searchTerm?.toLowerCase()))
-        setDragonsFiltered(filtered)
+        setDragonsFiltered(filtered || [])
     }, [searchTerm])
 
-    const handleSearchTermChange = (e) => setSearchTerm(e.target.value)
+    const handleSearchTermChange = (e: any) => setSearchTerm(e.target.value)
 
     return (
         <>
@@ -57,4 +57,4 @@ const dragonListContainer = {
     flexWrap: 'wrap',
     gridGap: '1.5rem',
     justifyContent: 'center',
-}
+} as any

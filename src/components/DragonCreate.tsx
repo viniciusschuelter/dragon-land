@@ -17,7 +17,7 @@ const DragonCreate = () => {
     const { createNewDragon } = useDragon()
     const [ newDragon, setNewDragonState ] = useState<DragonInterface>(initialDragon)
 
-    const handleDragonChange = (e, prop) => setNewDragonState({...newDragon, [prop]: e.target.value})
+    const handleDragonChange = (e: any, prop: string) => setNewDragonState({...newDragon, [prop]: e.target.value})
 
     const handleDragonCreate = async () => {
         await createNewDragon(newDragon)
