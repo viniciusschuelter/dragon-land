@@ -28,7 +28,7 @@ const DragonList = () => {
     return (
         <>
             <Header />
-            <div style={{display: 'flex'}}>
+            <div style={{ display: 'flex', marginBottom: '1rem' }}>
                 <input
                     name='searchTerm'
                     style={{marginRight: '1rem'}}
@@ -38,7 +38,7 @@ const DragonList = () => {
                 <button
                     type='submit'
                     className='contrast'
-                    style={{width: '200px'}}
+                    style={{ width: '200px', background: '#ff6c00', borderColor: '#fd9b4e' }}
                     onClick={() => navigate('/dragon/create')}>
                     New Dragon
                 </button>

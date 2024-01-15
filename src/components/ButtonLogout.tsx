@@ -30,4 +30,5 @@ const btnLogoutStyles = {
     width: 'auto',
     height: 'fit-content',
     background: 'transparent',
+    borderColor: '#ff434c'
 }

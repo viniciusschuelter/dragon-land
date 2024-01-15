@@ -1,13 +1,26 @@
 import * as dragonService from '../services/dragon.service';
 import { DragonInterface } from '../interfaces/dragon.interface';
 import { useCallback, useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast, ToastOptions } from 'react-toastify';
+
+const defaultToastConfig = {
+    position: 'top-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+} as ToastOptions
 
 export const useDragon = () => {
     const [dragons, setDragons] = useState<DragonInterface[]>();
 
     const toastAlert = (status: number, text?: string) => {
-        status === 200 ?  toast.success(text || 'Success') : toast.error( 'Error');
+        status === 200 || status === 201 ?
+            toast.success(text || 'Success', defaultToastConfig) :
+            toast.error( 'Error', defaultToastConfig);
     };
 
     const getAllDragons = useCallback(async () => {
@@ -52,13 +65,13 @@ export const useDragon = () => {
         async (id: string) => {
             try {
                 const { status } = await dragonService.deleteDragonById(id);
-                await getAllDragons();
+                location.reload()
                 toastAlert(status, 'Dragon deleted');
             } catch (error) {
                 toastAlert(404);
             }
         },
-        [getAllDragons]
+        []
     );
 
     return {

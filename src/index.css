@@ -73,3 +73,6 @@ h2 {
      display: block;
   }
 }
+.Toastify__close-button {
+  width: 50px;
+}
