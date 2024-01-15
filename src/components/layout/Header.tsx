@@ -7,7 +7,7 @@ const Header = () => {
         <header>
             <div style={headerStyles}>
                 <div style={logoStyles}>
-                    <img width='120px' src='src/assets/dragon-logo.png' />
+                    <img width='120px' src='/dragon-logo.png' />
                     <h2 style={{ margin: 0 }}>Welcome to Dragon Land</h2>
                 </div>
                 <ButtonLogout />
