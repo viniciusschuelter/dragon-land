@@ -59,7 +59,6 @@ export default DragonCard
 
 const dragonCardContainer = {
     background: 'var(--card-background-color)',
-    width: '320px',
     padding: '1.5rem',
     borderRadius: '1rem',
     cursor: 'pointer'

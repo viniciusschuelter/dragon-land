@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const { user, setUser } = useAuth();
   return (
-      <div className='container'>
+      <div>
           <BrowserRouter>
               <AuthContext.Provider value={{ user, setUser }}>
                   <Root></Root>

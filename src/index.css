@@ -48,7 +48,7 @@ h1 {
 }
 
 .icon-container {
-  width: 100% !important;
+  width: 100%;
 }
 
 .icon-container .icon-hovered {
@@ -65,6 +65,10 @@ h2 {
   display: none;
 }
 
+.container {
+  max-width: 1080px;
+}
+
 .Toastify__close-button {
   width: 50px;
 }
@@ -72,6 +76,10 @@ h2 {
 @media (min-width: 1200px) {
   #root {
     width: 1280px;
+  }
+
+  .icon-container {
+    width: 380px !important;
   }
 }
 
@@ -85,6 +93,10 @@ h2 {
   }
   .dragon-container {
      width: fit-content;
+  }
+
+  .icon-container {
+    width: 320px;
   }
 
   .icon-container .icon-hovered {
