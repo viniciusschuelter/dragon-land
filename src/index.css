@@ -58,7 +58,7 @@ h1 {
 }
 
 article {
-  min-width: auto;
+  min-width: 100% ;
 }
 
 h2 {

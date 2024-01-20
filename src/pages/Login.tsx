@@ -9,7 +9,7 @@ const Login = () => {
     const handlePasswordChange = (e: any) => setPassword(e.target.value)
 
     return (
-        <div className='container'>
+        <div style={loginContainer}>
             <article className='grid'>
                 <div>
                     <hgroup>
@@ -40,3 +40,10 @@ const Login = () => {
 }
 
 export default Login
+
+const loginContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    margin: '20vh 0'
+} as any
