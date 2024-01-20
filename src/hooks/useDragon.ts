@@ -3,7 +3,7 @@ import { DragonInterface } from '../interfaces/dragon.interface';
 import { useCallback, useState } from 'react';
 import { toast, ToastOptions } from 'react-toastify';
 
-const defaultToastConfig = {
+export const defaultToastConfig = {
     position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,

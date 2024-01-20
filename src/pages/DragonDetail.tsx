@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { DragonInterface } from '../interfaces/dragon.interface';
 import { useDragon } from '../hooks/useDragon';
 import { useParams } from 'react-router-dom';
-import ButtonBack from './ButtonBack';
+import ButtonBack from '../components/ButtonBack';
 import { randomDragonImage } from '../utils/utils';
 
 const initialDragon: DragonInterface = {

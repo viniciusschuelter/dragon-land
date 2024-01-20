@@ -26,6 +26,7 @@ const DragonCard = (props: { dragon: DragonInterface}) => {
 
     return (
         <Tilt
+            className='dragon-container'
             options={{
                 max: 45,
                 scale: 1,

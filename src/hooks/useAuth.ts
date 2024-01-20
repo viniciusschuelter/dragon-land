@@ -13,6 +13,9 @@ export const useAuth = () => {
     }, [])
 
     const login = (user: UserInterface) => {
+        if (user.username !== 'dragon' || user.password !== '123') {
+            throw new Error('User not exist');
+        }
         addUser(user)
     };
 

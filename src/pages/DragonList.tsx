@@ -1,8 +1,8 @@
 import { useDragon } from '../hooks/useDragon';
-import DragonCard from './DragonCard';
+import DragonCard from '../components/DragonCard';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from './layout/Header';
+import Header from '../components/layout/Header';
 import { DragonInterface } from '../interfaces/dragon.interface';
 
 
@@ -38,7 +38,7 @@ const DragonList = () => {
                 <button
                     type='submit'
                     className='contrast'
-                    style={{ width: '200px', background: '#ff6c00', borderColor: '#fd9b4e' }}
+                    style={{ width: '200px', background: '#ff6c00', borderColor: '#fd9b4e', whiteSpace: 'nowrap' }}
                     onClick={() => navigate('/dragon/create')}>
                     New Dragon
                 </button>
@@ -55,6 +55,5 @@ export default DragonList
 const dragonListContainer = {
     display: 'flex',
     flexWrap: 'wrap',
-    gridGap: '1.5rem',
-    justifyContent: 'center',
+    gridGap: '1.5rem'
 } as any

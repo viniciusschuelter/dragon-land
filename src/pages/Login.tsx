@@ -1,4 +1,4 @@
-import ButtonLogin from './ButtonLogin';
+import ButtonLogin from '../components/ButtonLogin';
 import { useState } from 'react';
 
 const Login = () => {
@@ -14,14 +14,14 @@ const Login = () => {
                 <div>
                     <hgroup>
                         <h3>Welcome to Dragon Land</h3>
-                        <h2>Type anything to access</h2>
+                        <h2>Type your user to access</h2>
                     </hgroup>
                     <label>
                         Username:
                     </label>
                     <input
                         name='name'
-                        placeholder='type any name'
+                        placeholder='type your username'
                         onChange={handleUsernameChange}
                     />
                     <label>
@@ -29,7 +29,7 @@ const Login = () => {
                     </label>
                     <input
                         name='password'
-                        placeholder='type any password'
+                        placeholder='type your password'
                         onChange={handlePasswordChange}
                     />
                     <ButtonLogin user={{username, password}} />

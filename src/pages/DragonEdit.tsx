@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DragonInterface } from '../interfaces/dragon.interface';
 import { useDragon } from '../hooks/useDragon';
-import { useNavigate } from 'react-router-dom';
-import ButtonBack from './ButtonBack';
+import { useNavigate, useParams } from 'react-router-dom';
+import ButtonBack from '../components/ButtonBack';
 
 const initialDragon: DragonInterface = {
     id: '',
@@ -12,15 +12,24 @@ const initialDragon: DragonInterface = {
     createdAt: new Date().toISOString()
 }
 
-const DragonCreate = () => {
+const DragonEdit = () => {
+    const { dragonId } = useParams()
     const navigate = useNavigate()
-    const { createNewDragon } = useDragon()
-    const [ newDragon, setNewDragonState ] = useState<DragonInterface>(initialDragon)
 
-    const handleDragonChange = (e: any, prop: string) => setNewDragonState({...newDragon, [prop]: e.target.value})
+    const {updateDragonById, getDragonById} = useDragon()
 
-    const handleDragonCreate = async () => {
-        await createNewDragon(newDragon)
+    const [updDragon, setUpdDragonState] = useState<DragonInterface>(initialDragon)
+
+    useEffect( () => {
+        getDragonById(dragonId as string).then( (dragon) => {
+            setUpdDragonState(dragon || initialDragon)
+        })
+    }, [getDragonById])
+
+    const handleDragonChange = (e: any, prop: string) => setUpdDragonState({...updDragon, [prop]: e.target.value})
+
+    const handleDragonUpdate = async () => {
+        await updateDragonById(updDragon)
         navigate('/dragons')
     }
 
@@ -30,7 +39,7 @@ const DragonCreate = () => {
             <article className='grid'>
                 <div>
                     <hgroup>
-                        <h3>Create a New Dragon</h3>
+                        <h3>Edit Dragon {updDragon.name}</h3>
                         <h2>All fields is required</h2>
                     </hgroup>
                     <label>
@@ -38,16 +47,18 @@ const DragonCreate = () => {
                     </label>
                     <input
                         name='name'
+                        value={updDragon.name}
                         placeholder='type the dragon name'
-                        onChange={(e) => handleDragonChange(e , 'name')}
+                        onChange={(e) => handleDragonChange(e, 'name')}
                     />
                     <label>
                         Dragon Type:
                     </label>
                     <input
                         name='type'
+                        value={updDragon.type}
                         placeholder='type the dragon type'
-                        onChange={(e) => handleDragonChange(e , 'type')}
+                        onChange={(e) => handleDragonChange(e, 'type')}
                     />
                     <label>
                         Dragon Histories:
@@ -55,11 +66,12 @@ const DragonCreate = () => {
                     <input
                         type='textarea'
                         name='histories'
+                        value={updDragon.histories}
                         placeholder='type the dragon histories'
-                        onChange={(e) => handleDragonChange(e , 'histories')}
+                        onChange={(e) => handleDragonChange(e, 'histories')}
                     />
-                    <button type='submit' className='contrast' onClick={handleDragonCreate}>
-                        Create Dragon
+                    <button type='submit' className='contrast' onClick={handleDragonUpdate}>
+                        Update Dragon
                     </button>
                 </div>
             </article>
@@ -67,4 +79,4 @@ const DragonCreate = () => {
     )
 }
 
-export default DragonCreate
+export default DragonEdit

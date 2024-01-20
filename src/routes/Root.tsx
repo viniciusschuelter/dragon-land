@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router'
-import Login from '../components/Login'
+import Login from '../pages/Login'
 import PrivateRoutes from './PrivateRoutes'
-import DragonList from '../components/DragonList'
-import DragonCreate from '../components/DragonCreate'
-import DragonDetail from '../components/DragonDetail'
+import DragonList from '../pages/DragonList'
+import DragonCreate from '../pages/DragonCreate'
+import DragonDetail from '../pages/DragonDetail'
 import PublicRoutes from './PublicRoutes'
-import DragonEdit from '../components/DragonEdit';
+import DragonEdit from '../pages/DragonEdit';
 
 export default function Root() {
     return (
