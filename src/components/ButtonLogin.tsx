@@ -13,7 +13,7 @@ const ButtonLogin = (props: { user : UserInterface}) => {
             login(props.user)
             navigate('/dragons')
             toast.success('Login successful', defaultToastConfig);
-        } catch (e) {
+        } catch (e: any) {
             toast.error(e.message, defaultToastConfig);
         }
     }
